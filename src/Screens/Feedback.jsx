@@ -1,12 +1,12 @@
 import React from 'react';
 import { Header } from '../component/Header';
-import { FeedbackTable } from '../component/FeedbackTable';
+import FeedbackList from '../component/FeedbackList';
 
 const Feedback = () => {
   return (
     <>
       <Header />
-      <FeedbackTable />
+      <FeedbackList />
     </>
   );
 };

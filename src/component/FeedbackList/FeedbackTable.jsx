@@ -8,21 +8,12 @@ import TableRow from '@mui/material/TableRow';
 import {Button} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
+import { TABLE_MIN_WIDTH } from '../../constants/common';
 
-function createData(id, name, helpDate, feedback) {
-  return { id, name, helpDate, feedback };
-}
-
-const rows = [
-  createData(1, 'Вале́рій Фе́дорович Залу́жний', '2023-04-25', 'Ви недостатньо затягнули йому шину'),
-  createData(2, 'Вале́рій Фе́дорович Залу́жний', '2023-04-28', 'Ви недостатньо затягнули йому шину'),
-  createData(3, 'Вале́рій Фе́дорович Залу́жний', '2023-04-29', 'Ви недостатньо затягнули йому шину'),
-];
-
-export const FeedbackTable = () => {
+export const FeedbackTable = ({ rows }) => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+      <Table sx={{ minWidth: TABLE_MIN_WIDTH }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell align="center">ПІБ</TableCell>

@@ -32,6 +32,8 @@
     "arrow-parens": ["warn", "as-needed"],
     "eol-last": "warn",
     "no-use-before-define": ["error", { "functions": false, "variables": false }],
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off"
   }
 }
