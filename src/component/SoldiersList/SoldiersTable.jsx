@@ -9,17 +9,7 @@ import {Button} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 
-function createData(id, name, age, bloodType, infections, alergions, battleRoster) {
-  return { id, name, age, bloodType, infections, alergions, battleRoster };
-}
-
-const rows = [
-  createData(1, 'Вале́рій Фе́дорович Залу́жний', 25, 'R(II) -', 'none', 'none', 'No Info', 'Alpha Team'),
-  createData(2, 'Вале́рій Фе́дорович Залу́жний', 5, 'R(II) -', 'none', 'none', 'No Info', 'Beta Team'),
-  createData(3, 'Вале́рій Фе́дорович Залу́жний', 2, 'R(II) -', 'none', 'none', 'No Info', 'Gamma Team'),
-];
-
-export const SoldiersTable = () => {
+export const SoldiersTable = ({ rows }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
