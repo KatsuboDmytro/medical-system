@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { Home } from "../Screens/Home";
-import { Login } from "../Screens/Login";
-import { AllSoldiers } from "../Screens/AllSoldiers";
-import { SoldierInfo } from "../Screens/SoldierInfo";
+import { Home } from "../screens/Home";
+import { Login } from "../screens/Login";
+import { AllSoldiers } from "../screens/AllSoldiers";
+import { SoldierInfo } from "../screens/SoldierInfo";
 
 import endpoints from "./endpoints";
 import PatientCard from "../component/patient_card/PatientCard";
@@ -18,7 +18,7 @@ const Router = () => {
         <Route path={endpoints.soldiers} element={<AllSoldiers />} />
         <Route path={endpoints.soldiersInfo} element={<SoldierInfo />} />
         <Route path={endpoints.patientcard} element={<PatientCard />} />
-        <Route path="*" element={<Navigate to={endpoints.main} />} />
+        <Route path="*" element={<Navigate to={endpoints.soldiers} replace />} />
       </Routes>
     </BrowserRouter>
   );
