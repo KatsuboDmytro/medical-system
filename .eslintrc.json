@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "off",
+    "import/no-named-default": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "no-undef": "warn",
+    "camelcase": "off",
+    "no-unused-vars": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "semi": ["warn", "always"],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "react/jsx-indent": ["warn", 2],
+    "react/jsx-indent-props": ["warn", 2],
+    "no-multiple-empty-lines": ["warn", { "max": 1 }],
+    "max-len": ["warn", { "code": 120 }],
+    "spaced-comment": ["warn", "always", { "markers": ["/"] }],
+    "arrow-parens": ["warn", "as-needed"],
+    "eol-last": "warn",
+    "no-use-before-define": ["error", { "functions": false, "variables": false }]
+  }
+}
