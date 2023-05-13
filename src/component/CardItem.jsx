@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, Typography, CardActions, Button, Box } from '@mui/material';
 
-const CardItem = ({ cardData }) => (
+const CardItem = ({ cardData, action }) => (
   <Card sx={{ minWidth: 275 }}>
     <CardContent>
       {cardData.map((data, index) => (
@@ -17,7 +17,7 @@ const CardItem = ({ cardData }) => (
       ))}
     </CardContent>
     <CardActions>
-      <Button size="small">Деталі</Button>
+      <Button size="small" onClick={action}>Деталі</Button>
     </CardActions>
   </Card>
 );

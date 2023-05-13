@@ -11,7 +11,7 @@ import {
   Select,
 } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { Header } from '../component/Header';
+import Header from '../component/Header';
 
 export const SoldierInfo = () => {
   const [name, setName] = useState('');

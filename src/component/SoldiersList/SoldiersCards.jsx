@@ -2,15 +2,15 @@ import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@mui/material';
 import CardItem from '../CardItem';
-import { FEEDBACK_DATA_ORDER, FEEDBACK_TABLE_HEADERS } from '../../constants/common';
+import { SOLDIERS_DATA_ORDER, SOLDIERS_TABLE_HEADERS } from '../../constants/common';
 import { transformToCardItemData } from '../../utils';
 import endpoints from '../../Router/endpoints';
 
-const FeedbackCards = ({ data }) => {
+const SoldiersCards = ({ data }) => {
   const navigate = useNavigate();
 
   const cardData = useMemo(
-    () => data.map(item => transformToCardItemData(FEEDBACK_TABLE_HEADERS, item, FEEDBACK_DATA_ORDER)),
+    () => data.map(item => transformToCardItemData(SOLDIERS_TABLE_HEADERS, item, SOLDIERS_DATA_ORDER)),
     [data],
   );
 
@@ -27,4 +27,4 @@ const FeedbackCards = ({ data }) => {
   );
 };
 
-export default FeedbackCards;
+export default SoldiersCards;

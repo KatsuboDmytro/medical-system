@@ -1,22 +1,8 @@
 import React from 'react';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import endpoints from '../Router/endpoints';
 
-export const Header = () => {
-  const navigationOptions = [
-    {
-      id: 1,
-      text: 'Всі солдати',
-      path: endpoints.soldiers,
-    },
-    {
-      id: 2,
-      text: 'Мій фідбек',
-      path: endpoints.feedback,
-    },
-  ];
-
+export const HeaderDesktop = ({ options }) => {
   const handleLogout = () => {
 
   };
@@ -30,7 +16,7 @@ export const Header = () => {
           flexDirection="row"
           columnGap="20px"
         >
-          {navigationOptions.map(link => (
+          {options.map(link => (
             <Link key={link.id} to={link.path} style={{ textDecoration: 'none' }}>
               <Typography variant="h6" color="white" sx={{ flexGrow: 1 }}>
                 {link.text}
