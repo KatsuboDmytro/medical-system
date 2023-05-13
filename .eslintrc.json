@@ -31,6 +31,7 @@
     "spaced-comment": ["warn", "always", { "markers": ["/"] }],
     "arrow-parens": ["warn", "as-needed"],
     "eol-last": "warn",
-    "no-use-before-define": ["error", { "functions": false, "variables": false }]
+    "no-use-before-define": ["error", { "functions": false, "variables": false }],
+    "react/function-component-definition" : "off"
   }
 }

@@ -1,0 +1,99 @@
+.block-flex{
+    display: flex;
+    align-items: center;
+    height: 50%;
+}
+.w-100{
+    width: 100%;
+}
+.wrapper{
+    display: flex;
+    width: 100%;
+   justify-content: space-around;
+   flex-direction: column;
+}
+
+.display-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:10px;
+}
+
+.patient-card-wrapper{
+    border: 2px solid #000;
+    width:650px;
+    margin: 0 25px;
+}
+.patient-card-header{
+border-bottom: 1px solid #000;
+    width: 100%;
+}
+.patient-card-header-text{
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    font-size:24px;
+    font-style: unset;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.patient-card-brigade{
+    border-bottom: 1px solid #000;
+    height: 100px;
+}
+.block-flex input:not([type="checkbox"]){
+    width: 70%;
+    text-align: center;
+    border:none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    margin: 0 20px;
+}
+.block-flex input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+.patient-initials-text{
+    margin: 10px;
+}
+.patient-card-initials{
+    border-bottom: 1px solid #000;
+}
+.patient-card-injury{
+    border-bottom: 1px solid #000;
+}
+.patient-card-injury-text{
+    margin: 15px;
+}
+.patient-block{
+    border: 2px solid #000;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.patient-signSympthoms{
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 16px;
+}
+table tr td:first-child {
+    width: 30%;
+    text-align: right;
+}
+.empty-td{
+    border: none;
+}
+.colored{
+    background: #CBCBCB;
+}
