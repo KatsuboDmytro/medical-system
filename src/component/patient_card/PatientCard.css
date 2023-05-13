@@ -21,7 +21,7 @@
 }
 
 .patient-card-wrapper{
-    border: 1px solid #000;
+    border: 2px solid #000;
     width:650px;
     margin: 0 25px;
 }
@@ -68,7 +68,32 @@ border-bottom: 1px solid #000;
     margin: 15px;
 }
 .patient-block{
-    border: 1px solid #000;
+    border: 2px solid #000;
     flex-direction: column;
     margin: 10px 0;
+}
+.patient-signSympthoms{
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 16px;
+}
+table tr td:first-child {
+    width: 30%;
+    text-align: right;
+}
+.empty-td{
+    border: none;
+}
+.colored{
+    background: #CBCBCB;
 }

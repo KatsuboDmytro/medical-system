@@ -1,3 +1,4 @@
+import React from 'react';
 
 import './PatientCard.css';
 import imgFront from './img/image 7.png';
@@ -38,7 +39,7 @@ const PatientCard = () => {
                            <p className='patient-initials-text'>Ч</p>
                            <input type='checkbox'/>
                            <p className='patient-initials-text'>Ж</p>
-                           <p className='patient-initials-text w-100'>Дата <span>(DD-MMM-YY)</span>:</p>
+                           <h2 className='patient-initials-text w-100'>Дата <span>(DD-MMMM-YY)</span>:</h2>
                            <input type="text"/>
                            <h2 className='patient-initials-text'>Час:</h2>
                            <input type="text"/>
@@ -152,18 +153,69 @@ const PatientCard = () => {
                                      </div>
                                  </div>
                              </div>
-
-                             <img src={imgBack} alt=""/>
-
+                             <img src={imgBack} alt="imgBack"/>
                           </div>
                        </div>
 
                      </div>
 
+                    <div className='patient-signSympthoms'>
+                    <table>
+                    <tbody>
+                        <tr>
+                            <td className='empty-td'>Час</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr className='colored'>
+                            <td>Пульс (час. та місце)</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr className='colored'>
+                            <td>Кров’яний тиск</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Частота дихання</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Пульс Ox % O2 Sat</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr className='colored'>
+                            <td>AVPU</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr className='colored'>
+                            <td>Шкала болю (0-10)</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    </div>
                </div>
-
         </div>
     )
 }
-
 export default PatientCard;
