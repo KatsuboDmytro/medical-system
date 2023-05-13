@@ -36,7 +36,7 @@ export const SoldiersTable = () => {
         </TableHead>
         <TableBody>
           {
-            rows.map((row) => (
+            rows.map(row => (
               <TableRow>
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.id}</TableCell>
@@ -48,10 +48,10 @@ export const SoldiersTable = () => {
                 <TableCell align="center">
                   <Link to={`/soldiers/:${row.id}`}>
                     <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary">
-                    Деталі
+                      type="submit"
+                      variant="contained"
+                      color="primary">
+                      Деталі
                     </Button>
                   </Link>
                 </TableCell>
@@ -62,4 +62,4 @@ export const SoldiersTable = () => {
       </Table>
     </TableContainer>
   );
-}
+};
