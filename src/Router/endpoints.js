@@ -4,6 +4,7 @@ const endpoints = {
   patientcard: '/patientcard',
   soldiers: '/soldiers',
   soldiersInfo: '/soldiers/:id',
+  feedback: '/feedback',
 };
 
 export default endpoints;
