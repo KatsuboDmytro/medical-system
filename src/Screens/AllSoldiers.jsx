@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Box } from '@mui/material';
 
-import { Header } from '../component/Header';
+import Header from '../component/Header';
 import SoldiersList from '../component/SoldiersList';
 
 export const AllSoldiers = () => {
