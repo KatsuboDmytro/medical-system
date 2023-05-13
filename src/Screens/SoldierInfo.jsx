@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography, Box, FormControl, InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Header } from '../component/Header';
+import { Canvas } from '../component/Canvas';
 
 export const SoldierInfo = () => {
   const [name, setName] = useState('');
@@ -21,6 +22,8 @@ export const SoldierInfo = () => {
 
   const [textField, setTextField] = React.useState('');
   const [feedbackField, setfeedbackField] = React.useState('');
+  
+  const [img, setImg] = React.useState('');
 
   const submitInformations = [{
     name,
@@ -36,6 +39,7 @@ export const SoldierInfo = () => {
     evac,
     sex,
     injuries,
+    img,
   }];
   
 
@@ -314,6 +318,7 @@ export const SoldierInfo = () => {
           Заповнити бланк
         </Button>
       </form>
+      <Canvas />
     </>
   );
 };
