@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { HeaderDesktop } from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 import useWindowSize from '../../hooks/useWindowSize';
 import endpoints from '../../Router/endpoints';
 
 const Header = () => {
+  const navigate = useNavigate();
   const isMobile = useWindowSize();
 
   const navigationOptions = [
@@ -20,7 +22,16 @@ const Header = () => {
     },
   ];
 
-  return isMobile ? <HeaderMobile options={navigationOptions} /> : <HeaderDesktop options={navigationOptions} />;
+  const handleLogout = () => {
+    // make api requrest
+    navigate(endpoints.login);
+  };
+
+  return isMobile ? (
+    <HeaderMobile options={navigationOptions} handleLogout={handleLogout} />
+  ) : (
+    <HeaderDesktop options={navigationOptions} handleLogout={handleLogout} />
+  );
 };
 
 export default Header;

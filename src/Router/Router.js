@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { Home } from "../screens/Home";
 import { Login } from "../screens/Login";
 import { AllSoldiers } from "../screens/AllSoldiers";
 import { SoldierInfo } from "../screens/SoldierInfo";
@@ -14,7 +13,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={endpoints.main} element={<Home />} />
         <Route path={endpoints.login} element={<Login />} />
         <Route path={endpoints.feedback} element={<Feedback />} />
         <Route path={endpoints.soldiers} element={<AllSoldiers />} />

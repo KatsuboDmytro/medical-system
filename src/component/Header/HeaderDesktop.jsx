@@ -2,11 +2,7 @@ import React from 'react';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export const HeaderDesktop = ({ options }) => {
-  const handleLogout = () => {
-
-  };
-
+export const HeaderDesktop = ({ options, handleLogout }) => {
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'space-between' }}>

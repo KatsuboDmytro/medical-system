@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+// eslint-disable-next-line import/no-cycle
 import apiSlice from "../api";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  isAuthorized: false,
   doctor: {
     id: '',
     username: '',
@@ -17,23 +18,21 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    logout(state) {
-      state.token = null;
-      localStorage.removeItem('token');
+    setAuthorization(state) {
+      state.isAuthorized = true;
+      localStorage.setItem('isAuthorized', true);
     },
     reset() {
-      return { token: null, username: null };
+      return { ...initialState };
     }
   },
   extraReducers: ({ addMatcher }) => {
     addMatcher(
       apiSlice.endpoints.login.matchFulfilled,
       (state, { payload }) => {
-        state.token = payload.token;
-        state.user = payload.user;
-                
-        localStorage.setItem('token', payload.token);
-        localStorage.setItem('user', JSON.stringify(payload.user));
+        state.doctor = payload.doctor;
+        
+        localStorage.setItem('doctor', JSON.stringify(payload.doctor));
       }
     );
     addMatcher(

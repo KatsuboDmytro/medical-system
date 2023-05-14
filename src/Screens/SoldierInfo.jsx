@@ -11,7 +11,7 @@ import {
   Select,
 } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { Header } from '../component/Header';
+import Header from '../component/Header';
 import { Canvas } from '../component/Canvas';
 
 export const SoldierInfo = () => {
@@ -51,7 +51,6 @@ export const SoldierInfo = () => {
     injuries,
     img,
   }];
-  
 
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;

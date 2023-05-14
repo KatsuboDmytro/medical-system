@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Box, Typography, Button, IconButton, Menu, MenuItem } 
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
-const HeaderMobile = ({ options }) => {
+const HeaderMobile = ({ options, handleLogout }) => {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
 
   const handleMenuOpen = event => {
@@ -12,10 +12,6 @@ const HeaderMobile = ({ options }) => {
 
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
-  };
-
-  const handleLogout = () => {
-    // Implement your logout logic here
   };
 
   return (
