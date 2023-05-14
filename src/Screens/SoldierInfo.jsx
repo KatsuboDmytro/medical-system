@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import styled from '@emotion/styled';
 import {
   TextField,
   Button,
@@ -145,12 +146,12 @@ export const SoldierInfo = () => {
     'Уламки',
   ];
   const notatki = [
-    { id: 1, from: 'tactical_doctor', text: 'notatkinotatkinotatkinotatkinotatkinotatkinotatkinotatki' },
-    { id: 2, from: 'medical_doctor', text: 'notatkinotatkinotatkinotatkinotatkinotatkinotatkinotatki' },
+    { id: 1, from: 'tactical_doctor', text: 'notatkinotatki notatkinota tkinotatk inotatkin otatki no tatki' },
+    { id: 2, from: 'medical_doctor', text: 'notatkin ota tkinotat kinotatkin otatkinota tkino tatki notatki' },
   ];
   const feedback = [
-    { id: 1, from: 'tactical_doctor', text: 'feedbackfeedbackfeedbackfeedbackfeedbackfeedbackfeedback' },
-    { id: 2, from: 'medical_doctor', text: 'feedbackfeedbackfeedbackfeedbackfeedbackfeedbackfeedback' },
+    { id: 1, from: 'tactical_doctor', text: 'feedbac kfeedbackfeed backfeedbac kfeed back eedba ckfe e dback' },
+    { id: 2, from: 'medical_doctor', text: 'feed backfeed ackfeedba ckfeedb ackfeed backfee backf e edback' },
   ];
 
   const handleSubmit = event => {
@@ -261,92 +262,96 @@ export const SoldierInfo = () => {
               onChange={event => setBattleRoster(event.target.value)}
             />
           </Grid>
+<Box style={{marginTop:"20px", width:"100%"}}>
+  <Grid container spacing={2}>
+    <Grid item xs={12} sm={4}>
+      <TextField
+        label="Дата"
+        variant="outlined"
+        fullWidth
+        value={date}
+        onChange={(event) => setDate(event.target.value)}
+      />
+    </Grid>
+    <Grid item xs={12} sm={4}>
+      <TextField
+        label="Час"
+        variant="outlined"
+        fullWidth
+        value={time}
+        onChange={(event) => setTime(event.target.value)}
+      />
+    </Grid>
+    <Grid item xs={12} sm={4}>
+      <TextField
+        label="Війська"
+        variant="outlined"
+        fullWidth
+        value={army}
+        onChange={(event) => setArmy(event.target.value)}
+      />
+    </Grid>
+    <Grid item xs={12} sm={4}>
+      <TextField
+        label="Тип військ"
+        variant="outlined"
+        fullWidth
+        value={armyType}
+        onChange={(event) => setArmyType(event.target.value)}
+      />
+    </Grid>
+  </Grid>
 
-          <Grid item xs={12} sm={4}  style={{ marginTop: '100px' }}>
-            <TextField
-              label="Дата"
-              variant="outlined"
-              fullWidth
-              value={date}
-              onChange={event => setDate(event.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}  style={{ marginTop: '100px' }}>
-            <TextField
-              label="Час"
-              variant="outlined"
-              fullWidth
-              value={time}
-              onChange={event => setTime(event.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}  style={{ marginTop: '-72px' }}>
-            <TextField
-              label="Війська"
-              variant="outlined"
-              fullWidth
-              value={army}
-              onChange={event => setArmy(event.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Тип військ"
-              variant="outlined"
-              fullWidth
-              value={armyType}
-              onChange={event => setArmyType(event.target.value)}
-            />
-          </Grid>
+<Box style={{marginTop:"20px", display:"flex", flexWrap:"wrap"}}>
+  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <FormControl sx={{ margin: '10px', width: '200px' }}>
+      <InputLabel>Тип евакуації:</InputLabel>
+      <Select value={evac} onChange={handleChangeEvac}>
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value="option1">Терміново</MenuItem>
+        <MenuItem value="option2">Пріоритетно</MenuItem>
+        <MenuItem value="option3">Звичайно</MenuItem>
+      </Select>
+    </FormControl>
+  </Box>
+  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <FormControl sx={{ margin: '10px', width: '200px' }}>
+      <InputLabel>Стать:</InputLabel>
+      <Select value={sex} onChange={handleChangeSex}>
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value="option1">Чоловіча</MenuItem>
+        <MenuItem value="option2">Жіноча</MenuItem>
+        <MenuItem value="option3">Інша</MenuItem>
+      </Select>
+    </FormControl>
+  </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <FormControl sx={{ margin: '10px', width: '200px' }}>
-              <InputLabel>Тип евакуації:</InputLabel>
-              <Select value={evac} onChange={handleChangeEvac}>
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value="option1">Терміново</MenuItem>
-                <MenuItem value="option2">Пріоритетно</MenuItem>
-                <MenuItem value="option3">Звичайно</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <FormControl sx={{ margin: '10px', width: '200px' }}>
-              <InputLabel>Стать:</InputLabel>
-              <Select value={sex} onChange={handleChangeSex}>
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value="option1">Чоловіча</MenuItem>
-                <MenuItem value="option2">Жіноча</MenuItem>
-                <MenuItem value="option3">Інша</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-
-          <div  style={{ marginTop: '-72px', marginLeft:'7px' }}>
-            <FormControl sx={{ m: 1, width: 300 }}>
-              <InputLabel id="demo-multiple-name-label">Тип ураження</InputLabel>
-              <Select
-                labelId="demo-multiple-name-label"
-                id="demo-multiple-name"
-                multiple
-                value={injuries}
-                onChange={handleChangeMult}
-                input={<OutlinedInput label="Name" />}
-                MenuProps={MenuProps}>
-                {
-                injuriesArr.map(item => (
-                  <MenuItem key={item} value={item}>
-                    {item}
-                  </MenuItem>
-                ))
-                }
-              </Select>
-            </FormControl>
-          </div>
+  <div>
+    <FormControl sx={{ m: 1, width: 300 }}>
+      <InputLabel id="demo-multiple-name-label">Тип ураження</InputLabel>
+      <Select
+        labelId="demo-multiple-name-label"
+        id="demo-multiple-name"
+        multiple
+        value={injuries}
+        onChange={handleChangeMult}
+        input={<OutlinedInput label="Name" />}
+        MenuProps={MenuProps}
+      >
+        {injuriesArr.map((item) => (
+          <MenuItem key={item} value={item}>
+            {item}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  </div>
+  </Box>
+</Box>
         </Grid>
 
         <Box style={{ margin: '20px' }}>
@@ -356,6 +361,7 @@ export const SoldierInfo = () => {
             notatki.map(item => (
               <Box
                 sx={{
+                  flexWrap: "wrap",
                   display: 'flex',
                   alignItems: 'center',
                   marginTop: '10px',
@@ -364,7 +370,7 @@ export const SoldierInfo = () => {
                   borderRadius: '4px',
                 }}>
                 <Typography style={{ marginLeft: '20px' }}>{item.from}:</Typography>
-                <Typography key={item.id} style={{ marginLeft: '40px' }}>
+                <Typography key={item.id} style={{ marginLeft: '40px', whiteSpace: 'pre-wrap' }}>
                   {item.text}
                 </Typography>
               </Box>
@@ -386,6 +392,7 @@ export const SoldierInfo = () => {
             feedback.map(item => (
               <Box
                 sx={{
+                  flexWrap: "wrap",
                   display: 'flex',
                   alignItems: 'center',
                   marginTop: '10px',
