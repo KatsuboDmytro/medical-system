@@ -12,16 +12,33 @@ const transformSoldiersData = ({
   surname,
   patronymic,
   needs_blood_transfusion,
+  infections,
+  allergies,
+  blood_type,
 }) => {
   return {
     id,
     name: `${surname} ${name} ${patronymic}`,
     age,
-    // bloodType,
-    // infections,
-    // alergions,
-    // battleRoster,
-  }
+    bloodType: blood_type,
+    infections,
+    alergions: allergies,
+    battleRoster: brigade,
+    transfusion: needs_blood_transfusion ? 'Треба' : 'Не треба',
+  };
 };
 
-export { transformToCardItemData };
+const transformFeedbackData = ({
+  id,
+  text,
+  name,
+  surname,
+  patronymic,
+}) => ({
+  id,
+  name: `${surname} ${name} ${patronymic}`,
+  helpDate: '2023-',
+  feedback: text,
+});
+
+export { transformToCardItemData, transformSoldiersData, transformFeedbackData };
