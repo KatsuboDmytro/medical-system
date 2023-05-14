@@ -16,12 +16,12 @@ export const SoldiersTable = ({ rows }) => {
         <TableHead>
           <TableRow>
             <TableCell align="center">ПІБ</TableCell>
-            <TableCell align="center">Бригада</TableCell>
             <TableCell align="center">Вік</TableCell>
             <TableCell align="center">Група крові</TableCell>
             <TableCell align="center">Інфекції</TableCell>
             <TableCell align="center">Алергії</TableCell>
             <TableCell align="center">Переливання крові</TableCell>
+            <TableCell align="center">Бригада</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -29,11 +29,11 @@ export const SoldiersTable = ({ rows }) => {
             rows.map(row => (
               <TableRow>
                 <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.id}</TableCell>
                 <TableCell align="center">{row.age}</TableCell>
                 <TableCell align="center">{row.bloodType}</TableCell>
                 <TableCell align="center">{row.infections}</TableCell>
                 <TableCell align="center">{row.alergions}</TableCell>
+                <TableCell align="center">{row.transfusion}</TableCell>
                 <TableCell align="center">{row.battleRoster}</TableCell>
                 <TableCell align="center">
                   <Link to={`/soldiers/:${row.id}`}>

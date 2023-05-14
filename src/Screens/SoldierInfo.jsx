@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   TextField,
   Button,
@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Header from '../component/Header';
-import { Canvas } from '../component/Canvas';
+import human from '../assets/human.png'
 
 export const SoldierInfo = () => {
   const [name, setName] = useState('');
@@ -20,7 +20,9 @@ export const SoldierInfo = () => {
   const [bloodType, setBloodType] = useState('');
   const [infections, setInfections] = useState('');
   const [allergies, setAllergies] = useState('');
+  const [transfusion, setTransfusion] = useState('');
   const [battleRoster, setBattleRoster] = useState('');
+
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [army, setArmy] = useState('');
@@ -34,14 +36,73 @@ export const SoldierInfo = () => {
   const [feedbackField, setfeedbackField] = React.useState('');
   
   const [img, setImg] = React.useState('');
+  const canvasRef = useRef(null);
+  const [ctx, setCtx] = useState(null);
+  const [color, setColor] = useState('#000000');
+  const [drawing, setDrawing] = useState(false);
 
-  const submitInformations = [{
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    setCtx(context);
+    canvas.width = 360;
+    canvas.height = 410;
+  }, []);
+  
+  useEffect(() => {
+    const loadImage = () => {
+      const image = new Image();
+      image.src = human;
+      image.onload = () => {
+        ctx.drawImage(image, 0, 0);
+      };
+    };
+    
+    if (ctx) {
+      loadImage();
+    }
+  }, [ctx]);
+  
+  const handleColorChange = (e) => {
+    setColor(e.target.value);
+  };
+  
+  const handleMouseDown = (e) => {
+    setDrawing(true);
+    const { offsetX, offsetY } = e.nativeEvent;
+    ctx.beginPath();
+    ctx.moveTo(offsetX, offsetY);
+  };
+  
+  const handleMouseUp = () => {
+    setDrawing(false);
+    ctx.closePath(); // Close the current path
+  };
+  
+  const handleMouseMove = (e) => {
+    if (!drawing) return;
+    
+    const { offsetX, offsetY } = e.nativeEvent;
+    
+    ctx.strokeStyle = color;
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 5;
+    ctx.lineTo(offsetX, offsetY);
+    ctx.stroke();
+  };
+
+  const submitMainInformations = [{
     name,
     age,
     bloodType,
     infections,
     allergies,
+    transfusion,
     battleRoster,
+  }];
+
+  const submitSecInformations = [{
     date,
     time,
     army,
@@ -50,6 +111,14 @@ export const SoldierInfo = () => {
     sex,
     injuries,
     img,
+  }];
+
+  const submitTextField = [{
+    textField,
+  }];
+
+  const submitFeedbackField = [{
+    feedbackField,
   }];
 
   const ITEM_HEIGHT = 48;
@@ -86,7 +155,17 @@ export const SoldierInfo = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(submitInformations);
+    console.log(submitMainInformations);
+    console.log(submitSecInformations);
+    console.log(submitTextField);
+    console.log(submitFeedbackField);
+  };
+
+  const handleSaveCanvas = () => {
+    const canvas = canvasRef.current;
+    const imageDataURL = canvas.toDataURL();
+    setImg(imageDataURL);
+    console.log(img);
   };
 
   const handleChangeMult = event => {
@@ -166,6 +245,15 @@ export const SoldierInfo = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              label="Переливання крові"
+              variant="outlined"
+              fullWidth
+              value={transfusion}
+              onChange={event => setTransfusion(event.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <TextField
               label="Бригада"
               variant="outlined"
               fullWidth
@@ -174,7 +262,7 @@ export const SoldierInfo = () => {
             />
           </Grid>
 
-          <Grid item xs={12} sm={4} style={{ marginTop: '50px' }}>
+          <Grid item xs={12} sm={4}  style={{ marginTop: '100px' }}>
             <TextField
               label="Дата"
               variant="outlined"
@@ -183,7 +271,7 @@ export const SoldierInfo = () => {
               onChange={event => setDate(event.target.value)}
             />
           </Grid>
-          <Grid item xs={12} sm={4} style={{ marginTop: '50px' }}>
+          <Grid item xs={12} sm={4}  style={{ marginTop: '100px' }}>
             <TextField
               label="Час"
               variant="outlined"
@@ -192,7 +280,7 @@ export const SoldierInfo = () => {
               onChange={event => setTime(event.target.value)}
             />
           </Grid>
-          <Grid item xs={12} sm={4} style={{ marginTop: '50px' }}>
+          <Grid item xs={12} sm={4}  style={{ marginTop: '-72px' }}>
             <TextField
               label="Війська"
               variant="outlined"
@@ -238,9 +326,9 @@ export const SoldierInfo = () => {
             </FormControl>
           </Box>
 
-          <div>
+          <div  style={{ marginTop: '-72px', marginLeft:'7px' }}>
             <FormControl sx={{ m: 1, width: 300 }}>
-              <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+              <InputLabel id="demo-multiple-name-label">Тип ураження</InputLabel>
               <Select
                 labelId="demo-multiple-name-label"
                 id="demo-multiple-name"
@@ -249,11 +337,13 @@ export const SoldierInfo = () => {
                 onChange={handleChangeMult}
                 input={<OutlinedInput label="Name" />}
                 MenuProps={MenuProps}>
-                {injuriesArr.map(item => (
+                {
+                injuriesArr.map(item => (
                   <MenuItem key={item} value={item}>
                     {item}
                   </MenuItem>
-                ))}
+                ))
+                }
               </Select>
             </FormControl>
           </div>
@@ -262,7 +352,8 @@ export const SoldierInfo = () => {
         <Box style={{ margin: '20px' }}>
           <Typography variant="h5">Нотатки</Typography>
           <Box style={{ display: 'flex', flexDirection: 'column' }}>
-            {notatki.map(item => (
+            {
+            notatki.map(item => (
               <Box
                 sx={{
                   display: 'flex',
@@ -277,7 +368,8 @@ export const SoldierInfo = () => {
                   {item.text}
                 </Typography>
               </Box>
-            ))}
+            ))
+            }
             <TextField
               style={{ marginTop: '10px', width: '600px' }}
               label="Enter your text"
@@ -290,7 +382,8 @@ export const SoldierInfo = () => {
         <Box style={{ margin: '20px' }}>
           <Typography variant="h5">Відгук</Typography>
           <Box style={{ display: 'flex', flexDirection: 'column' }}>
-            {feedback.map(item => (
+            {
+            feedback.map(item => (
               <Box
                 sx={{
                   display: 'flex',
@@ -305,7 +398,8 @@ export const SoldierInfo = () => {
                   {item.text}
                 </Typography>
               </Box>
-            ))}
+            ))
+            }
             <TextField
               style={{ marginTop: '10px', width: '600px' }}
               label="Enter your text"
@@ -315,9 +409,20 @@ export const SoldierInfo = () => {
           </Box>
         </Box>
 
-        <Canvas />
-        
-        <Button type="submit" variant="contained" color="primary" style={{ margin: '20px' }}>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <canvas
+            ref={canvasRef}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+          />
+          <div>
+            <h5>Обери Колір</h5>
+            <input type="color" value={color} onChange={handleColorChange} />
+          </div>
+        </div>
+
+        <Button type="submit" onClick={handleSaveCanvas} variant="contained" color="primary" style={{ margin: '20px' }}>
           Заповнити бланк
         </Button>
       </form>

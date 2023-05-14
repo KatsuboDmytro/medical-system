@@ -3,8 +3,8 @@ import useWindowSize from '../../hooks/useWindowSize';
 import SoldiersCards from './SoldiersCards';
 import { SoldiersTable } from './SoldiersTable';
 
-function createData(id, name, age, bloodType, infections, alergions, battleRoster) {
-  return { id, name, age, bloodType, infections, alergions, battleRoster };
+function createData(id, name, age, bloodType, infections, alergions, transfusion, battleRoster) {
+  return { id, name, age, bloodType, infections, alergions, transfusion, battleRoster };
 }
 
 const rows = [
