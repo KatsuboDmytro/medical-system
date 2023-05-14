@@ -12,7 +12,15 @@ export const SOLDIERS_TABLE_HEADERS = [
   'Алергії',
   'Переливання крові',
 ];
-export const SOLDIERS_DATA_ORDER = ['name', 'id', 'age', 'bloodType', 'infections', 'alergions', 'battleRoster'];
+export const SOLDIERS_DATA_ORDER = [
+  'name',
+  'battleRoster',
+  'age',
+  'bloodType',
+  'infections',
+  'alergions',
+  'transfusion',
+];
 export const toastOptions = {
   autoClose: 3000,
   hideProgressBar: true,
