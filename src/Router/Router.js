@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { Login } from "../screens/Login";
-import { AllSoldiers } from "../screens/AllSoldiers";
-import { SoldierInfo } from "../screens/SoldierInfo";
+import { Login } from "../Screens/Login";
+import { AllSoldiers } from "../Screens/AllSoldiers";
+import { SoldierInfo } from "../Screens/SoldierInfo";
 
 import endpoints from "./endpoints";
 import PatientCard from "../component/patient_card/PatientCard";
-import Feedback from "../screens/Feedback";
+import Feedback from "../Screens/Feedback";
 
 const Router = () => {
   return (

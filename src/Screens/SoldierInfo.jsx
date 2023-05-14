@@ -315,11 +315,13 @@ export const SoldierInfo = () => {
           </Box>
         </Box>
 
+        <Canvas />
+        
         <Button type="submit" variant="contained" color="primary" style={{ margin: '20px' }}>
           Заповнити бланк
         </Button>
       </form>
-      <Canvas />
+      
     </>
   );
 };
