@@ -34,6 +34,7 @@
     "no-use-before-define": ["error", { "functions": false, "variables": false }],
     "react/function-component-definition": "off",
     "react/prop-types": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-restricted-globals": "off"
   }
 }

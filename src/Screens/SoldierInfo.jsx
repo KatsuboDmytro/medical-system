@@ -25,38 +25,45 @@ export const SoldierInfo = () => {
 
   const [textField, setTextField] = React.useState('');
   const [feedbackField, setfeedbackField] = React.useState('');
-  
+
   const [img, setImg] = React.useState('');
 
+  const submitMainInformations = [
+    {
+      name,
+      age,
+      bloodType,
+      infections,
+      allergies,
+      transfusion,
+      battleRoster,
+    },
+  ];
 
-  const submitMainInformations = [{
-    name,
-    age,
-    bloodType,
-    infections,
-    allergies,
-    transfusion,
-    battleRoster,
-  }];
+  const submitSecInformations = [
+    {
+      date,
+      time,
+      army,
+      armyType,
+      evac,
+      sex,
+      injuries,
+      img,
+    },
+  ];
 
-  const submitSecInformations = [{
-    date,
-    time,
-    army,
-    armyType,
-    evac,
-    sex,
-    injuries,
-    img,
-  }];
+  const submitTextField = [
+    {
+      textField,
+    },
+  ];
 
-  const submitTextField = [{
-    textField,
-  }];
-
-  const submitFeedbackField = [{
-    feedbackField,
-  }];
+  const submitFeedbackField = [
+    {
+      feedbackField,
+    },
+  ];
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -92,50 +99,50 @@ export const SoldierInfo = () => {
     <>
       <Header />
       <form onSubmit={handleSubmit} style={{ margin: '25px' }}>
-        <MainInfo 
-        name={name}
-        age={age}
-        bloodType={bloodType}
-        infections={infections}
-        allergies={allergies}
-        transfusion={transfusion}
-        battleRoster={battleRoster}
-        setName={setName}
-        setAge={setAge}
-        setBloodType={setBloodType}
-        setInfections={setInfections}
-        setAllergies={setAllergies}
-        setTransfusion={setTransfusion}
-        setBattleRoster={setBattleRoster}
+        <MainInfo
+          name={name}
+          age={age}
+          bloodType={bloodType}
+          infections={infections}
+          allergies={allergies}
+          transfusion={transfusion}
+          battleRoster={battleRoster}
+          setName={setName}
+          setAge={setAge}
+          setBloodType={setBloodType}
+          setInfections={setInfections}
+          setAllergies={setAllergies}
+          setTransfusion={setTransfusion}
+          setBattleRoster={setBattleRoster}
         />
 
-        <SecondaryInfo 
-        date={date}
-        time={time}
-        army={army}
-        armyType={armyType}
-        evac={evac}
-        sex={sex}
-        injuries={injuries}
-        img={img}
-        setDate={setDate}
-        setImg={setImg}
-        setTime={setTime}
-        setArmy={setArmy}
-        setArmyType={setArmyType}
-        handleChangeMult={handleChangeMult}
-        handleChangeSex={handleChangeSex}
-        handleChangeEvac={handleChangeEvac}
-        submitSecInformations={submitSecInformations}
+        <SecondaryInfo
+          date={date}
+          time={time}
+          army={army}
+          armyType={armyType}
+          evac={evac}
+          sex={sex}
+          injuries={injuries}
+          img={img}
+          setDate={setDate}
+          setImg={setImg}
+          setTime={setTime}
+          setArmy={setArmy}
+          setArmyType={setArmyType}
+          handleChangeMult={handleChangeMult}
+          handleChangeSex={handleChangeSex}
+          handleChangeEvac={handleChangeEvac}
+          submitSecInformations={submitSecInformations}
         />
 
-        <Communication 
-        textField={textField}
-        setfeedbackField={setfeedbackField}
-        handleChangeTextField={handleChangeTextField}
-        handleChangeFeedbackField={handleChangeFeedbackField}
-        submitTextField={submitTextField} 
-        submitFeedbackField={submitFeedbackField}
+        <Communication
+          textField={textField}
+          setfeedbackField={setfeedbackField}
+          handleChangeTextField={handleChangeTextField}
+          handleChangeFeedbackField={handleChangeFeedbackField}
+          submitTextField={submitTextField}
+          submitFeedbackField={submitFeedbackField}
         />
       </form>
     </>

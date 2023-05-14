@@ -1,113 +1,118 @@
-import React from 'react'
-import { TextField, Grid, Button} from '@mui/material';
-import { useMainSoldierMutation } from '../../store/api';
+import React from 'react';
+import { TextField, Grid, Button } from '@mui/material';
+import { useEditSoldierMainInfoMutation } from '../../store/api';
 
 export const MainInfo = ({
-    name,
-    age,
-    bloodType,
-    infections,
-    allergies,
-    transfusion,
-    battleRoster,
-    setName,
-    setAge,
-    setBloodType,
-    setInfections,
-    setAllergies,
-    setTransfusion,
-    setBattleRoster,
-    }) => {
-    const [soldier] = useMainSoldierMutation();
+  name,
+  age,
+  bloodType,
+  infections,
+  allergies,
+  transfusion,
+  battleRoster,
+  setName,
+  setAge,
+  setBloodType,
+  setInfections,
+  setAllergies,
+  setTransfusion,
+  setBattleRoster,
+}) => {
+  const [soldier] = useEditSoldierMainInfoMutation();
 
-    const handleMainInfoSubmit = async event => {
-      event.preventDefault();
+  const handleMainInfoSubmit = async event => {
+    event.preventDefault();
 
-      const soldierResult = await soldier({
-        name,
-        age,
-        bloodType,
-        infections,
-        allergies,
-        transfusion,
-        battleRoster,
-      });
+    const soldierResult = await soldier({
+      name,
+      age,
+      bloodType,
+      infections,
+      allergies,
+      transfusion,
+      battleRoster,
+    });
 
-      if (!soldierResult.error) {
-        console.log('success'); 
-      }
-    };
+    if (!soldierResult.error) {
+      console.log('success');
+    }
+  };
 
   return (
     <form onSubmit={handleMainInfoSubmit} style={{ margin: '25px' }}>
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="ПІБ"
-          variant="outlined"
-          fullWidth
-          value={name}
-          onChange={event => setName(event.target.value)}
-        />
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="ПІБ"
+            variant="outlined"
+            fullWidth
+            value={name}
+            onChange={event => setName(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Вік"
+            variant="outlined"
+            fullWidth
+            value={age}
+            onChange={event => setAge(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Група крові"
+            variant="outlined"
+            fullWidth
+            value={bloodType}
+            onChange={event => setBloodType(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Інфекції"
+            variant="outlined"
+            fullWidth
+            value={infections}
+            onChange={event => setInfections(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Алергії"
+            variant="outlined"
+            fullWidth
+            value={allergies}
+            onChange={event => setAllergies(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Переливання крові"
+            variant="outlined"
+            fullWidth
+            value={transfusion}
+            onChange={event => setTransfusion(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Бригада"
+            variant="outlined"
+            fullWidth
+            value={battleRoster}
+            onChange={event => setBattleRoster(event.target.value)}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Вік"
-          variant="outlined"
-          fullWidth
-          value={age}
-          onChange={event => setAge(event.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Група крові"
-          variant="outlined"
-          fullWidth
-          value={bloodType}
-          onChange={event => setBloodType(event.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Інфекції"
-          variant="outlined"
-          fullWidth
-          value={infections}
-          onChange={event => setInfections(event.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Алергії"
-          variant="outlined"
-          fullWidth
-          value={allergies}
-          onChange={event => setAllergies(event.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Переливання крові"
-          variant="outlined"
-          fullWidth
-          value={transfusion}
-          onChange={event => setTransfusion(event.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <TextField
-          label="Бригада"
-          variant="outlined"
-          fullWidth
-          value={battleRoster}
-          onChange={event => setBattleRoster(event.target.value)}
-        />
-      </Grid>
-      </Grid>
-      <Button type="submit" onClick={handleMainInfoSubmit} variant="contained" color="primary" style={{ margin: '20px' }}>
-          Надіслати
-      </Button>      
-      </form>
-)
-}
+      <Button
+        type="submit"
+        onClick={handleMainInfoSubmit}
+        variant="contained"
+        color="primary"
+        style={{ margin: '20px' }}>
+        Надіслати
+      </Button>
+    </form>
+  );
+};
