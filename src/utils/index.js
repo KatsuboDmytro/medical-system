@@ -37,7 +37,7 @@ const transformFeedbackData = ({
 }) => ({
   id,
   name: `${surname} ${name} ${patronymic}`,
-  helpDate: '2023-',
+  helpDate: '2023-04-25',
   feedback: text,
 });
 

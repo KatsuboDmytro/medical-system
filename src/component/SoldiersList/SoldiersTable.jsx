@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import {Button} from '@mui/material';
+import { Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 
@@ -25,29 +25,24 @@ export const SoldiersTable = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {
-            rows.map(row => (
-              <TableRow>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.age}</TableCell>
-                <TableCell align="center">{row.bloodType}</TableCell>
-                <TableCell align="center">{row.infections}</TableCell>
-                <TableCell align="center">{row.alergions}</TableCell>
-                <TableCell align="center">{row.transfusion}</TableCell>
-                <TableCell align="center">{row.battleRoster}</TableCell>
-                <TableCell align="center">
-                  <Link to={`/soldiers/:${row.id}`}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary">
-                      Деталі
-                    </Button>
-                  </Link>
-                </TableCell>
-              </TableRow>
-            ))
-          }
+          {rows.map(row => (
+            <TableRow>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.age}</TableCell>
+              <TableCell align="center">{row.bloodType}</TableCell>
+              <TableCell align="center">{row.infections}</TableCell>
+              <TableCell align="center">{row.alergions}</TableCell>
+              <TableCell align="center">{row.transfusion}</TableCell>
+              <TableCell align="center">{row.battleRoster}</TableCell>
+              <TableCell align="center">
+                <Link to={`/soldiers/${row.id}`}>
+                  <Button type="submit" variant="contained" color="primary">
+                    Деталі
+                  </Button>
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

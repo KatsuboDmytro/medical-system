@@ -90,7 +90,7 @@ export const SecondaryInfo = ({
     const imageDataURL = canvas.toDataURL();
     setImg(imageDataURL);
 
-    const soldierResult = await soldier({
+    console.log({
       date,
       time,
       army,
@@ -100,10 +100,6 @@ export const SecondaryInfo = ({
       injuries,
       img,
     });
-
-    if (!soldierResult.error) {
-      console.log('success');
-    }
   };
 
   const handleMouseMove = e => {

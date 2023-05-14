@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 import Header from '../component/Header';
 import { MainInfo } from '../component/InfoList/MainInfo';
 import { SecondaryInfo } from '../component/InfoList/SecondaryInfo';
 import { Communication } from '../component/InfoList/Communication';
+import { useGetSoldierQuery } from '../store/api';
 
 export const SoldierInfo = () => {
+  const { id } = useParams();
+
+  const { data, isLoading } = useGetSoldierQuery({ soldierId: id });
+
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [bloodType, setBloodType] = useState('');
@@ -27,6 +33,17 @@ export const SoldierInfo = () => {
   const [feedbackField, setfeedbackField] = React.useState('');
 
   const [img, setImg] = React.useState('');
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      setAge(data.age);
+      setName(`${data.surname} ${data.name} ${data.patronymic}`);
+      setBloodType(data.blood_type);
+      setInfections(data.infections);
+      setBattleRoster(data.brigade);
+      setAllergies(data.allergies);
+    }
+  }, [data, isLoading]);
 
   const submitMainInformations = [
     {

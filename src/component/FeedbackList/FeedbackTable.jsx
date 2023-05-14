@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import {Button} from '@mui/material';
+import { Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import { TABLE_MIN_WIDTH } from '../../constants/common';
@@ -22,25 +22,20 @@ export const FeedbackTable = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {
-            rows.map(row => (
-              <TableRow key={row.id}>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.helpDate}</TableCell>
-                <TableCell align="center">{row.feedback}</TableCell>
-                <TableCell align="center">
-                  <Link to={`/soldiers/:${row.id}`}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary">
-                      Деталі
-                    </Button>
-                  </Link>
-                </TableCell>
-              </TableRow>
-            ))
-          }
+          {rows.map(row => (
+            <TableRow key={row.id}>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.helpDate}</TableCell>
+              <TableCell align="center">{row.feedback}</TableCell>
+              <TableCell align="center">
+                <Link to={`/soldiers/${row.id}`}>
+                  <Button type="submit" variant="contained" color="primary">
+                    Деталі
+                  </Button>
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
 import { HeaderDesktop } from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 import useWindowSize from '../../hooks/useWindowSize';
@@ -8,6 +9,8 @@ import endpoints from '../../Router/endpoints';
 const Header = () => {
   const navigate = useNavigate();
   const isMobile = useWindowSize();
+
+  const doctor = useSelector(state => state.auth.doctor);
 
   const navigationOptions = [
     {
@@ -27,10 +30,12 @@ const Header = () => {
     navigate(endpoints.login);
   };
 
+  const displayName = `${doctor.surname} ${doctor.name}`;
+
   return isMobile ? (
-    <HeaderMobile options={navigationOptions} handleLogout={handleLogout} />
+    <HeaderMobile displayName={displayName} options={navigationOptions} handleLogout={handleLogout} />
   ) : (
-    <HeaderDesktop options={navigationOptions} handleLogout={handleLogout} />
+    <HeaderDesktop displayName={displayName} options={navigationOptions} handleLogout={handleLogout} />
   );
 };
 

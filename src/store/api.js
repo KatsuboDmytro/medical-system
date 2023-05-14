@@ -91,7 +91,7 @@ const apiSlice = createApi({
     // FEEDBACK API
     getAllFeedback: query({
       query: () => ({
-        url: '/soldiers/feedback',
+        url: '/soldiers/feedbacks',
       }),
       providesTags: ['Feedback'],
     }),

@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export const HeaderDesktop = ({ options, handleLogout }) => {
+export const HeaderDesktop = ({ options, handleLogout, displayName }) => {
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'space-between' }}>
@@ -21,7 +21,7 @@ export const HeaderDesktop = ({ options, handleLogout }) => {
           ))}
         </Box>
         <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center' }}>
-          Тамара Василівна
+          {displayName}
         </Typography>
         <Button variant="contained" color="error" onClick={handleLogout}>
           Вийти

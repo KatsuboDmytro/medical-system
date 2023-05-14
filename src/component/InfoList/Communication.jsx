@@ -47,7 +47,7 @@ export const Communication = ({
             </Box>
           ))}
           <TextField
-            style={{ marginTop: '10px', width: '600px' }}
+            style={{ marginTop: '10px' }}
             label="Enter your text"
             value={textField}
             onChange={handleChangeTextField}
@@ -76,7 +76,7 @@ export const Communication = ({
             </Box>
           ))}
           <TextField
-            style={{ marginTop: '10px', width: '600px' }}
+            style={{ marginTop: '10px' }}
             label="Enter your text"
             value={feedbackField}
             onChange={handleChangeFeedbackField}

@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Box, Typography, Button, IconButton, Menu, MenuItem } 
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
-const HeaderMobile = ({ options, handleLogout }) => {
+const HeaderMobile = ({ options, handleLogout, displayName }) => {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
 
   const handleMenuOpen = event => {
@@ -30,7 +30,7 @@ const HeaderMobile = ({ options, handleLogout }) => {
           </Menu>
         </Box>
         <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center' }}>
-          Тамара Василівна
+          {displayName}
         </Typography>
         <Button variant="contained" color="error" onClick={handleLogout}>
           Вийти
