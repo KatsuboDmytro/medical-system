@@ -63,13 +63,6 @@ export const SoldierInfo = () => {
     console.log(submitMainInformations);
   };
 
-  const handleMainInfoSubmit = event => {
-    event.preventDefault();
-    console.log(submitMainInformations);
-  };
-
-
-
   const handleChangeMult = event => {
     const { value } = event.target;
     setInjuries(typeof value === 'string' ? value.split(',') : value);
@@ -114,7 +107,6 @@ export const SoldierInfo = () => {
         setAllergies={setAllergies}
         setTransfusion={setTransfusion}
         setBattleRoster={setBattleRoster}
-        handleMainInfoSubmit={handleMainInfoSubmit}
         />
 
         <SecondaryInfo 

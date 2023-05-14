@@ -55,7 +55,7 @@ const apiSlice = createApi({
         body,
       }),
     }),
-    editSoldier: mutation({
+    mainSoldier: mutation({
       query: ({ soldierId, editData }) => ({
         url: `/soldiers/${soldierId}`,
         method: 'PUT',
@@ -125,7 +125,9 @@ export const {
   useGetSoldiersQuery,
   useGetSoldierQuery,
   useAddSoldierMutation,
-  useEditSoldierMutation,
+  useMainSoldierMutation,
+  useSecondarySoldierMutation,
+  useCommunicationSoldierMutation,
   // NOTES API
   useGetNotesQuery,
   useAddNoteMutation,

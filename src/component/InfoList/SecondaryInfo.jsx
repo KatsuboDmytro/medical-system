@@ -99,12 +99,27 @@ export const SecondaryInfo = ({
         ctx.closePath(); // Close the current path
       };
 
-      const handleSecondaryInfoSubmit = event => {
+      const [soldier] = useEditSoldierMutation();
+
+      const handleSecondaryInfoSubmit = async event => {
         event.preventDefault();
         const canvas = canvasRef.current;
         const imageDataURL = canvas.toDataURL();
         setImg(imageDataURL);
-        console.log(submitSecInformations);
+
+        const soldierResult = await soldier({
+          name,
+          age,
+          bloodType,
+          infections,
+          allergies,
+          transfusion,
+          battleRoster,
+        });
+  
+        if (!soldierResult.error) {
+          console.log('success'); 
+        }
       };
       
       const handleMouseMove = (e) => {
@@ -124,6 +139,7 @@ export const SecondaryInfo = ({
         if (ctx) {
           ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
         }
+        
         const loadImage = () => {
           const image = new Image();
           image.src = human;

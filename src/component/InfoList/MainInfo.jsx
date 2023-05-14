@@ -1,5 +1,6 @@
 import React from 'react'
 import { TextField, Grid, Button} from '@mui/material';
+import { useMainSoldierMutation } from '../../store/api';
 
 export const MainInfo = ({
     name,
@@ -16,8 +17,26 @@ export const MainInfo = ({
     setAllergies,
     setTransfusion,
     setBattleRoster,
-    handleMainInfoSubmit,
     }) => {
+    const [soldier] = useMainSoldierMutation();
+
+    const handleMainInfoSubmit = async event => {
+      event.preventDefault();
+
+      const soldierResult = await soldier({
+        name,
+        age,
+        bloodType,
+        infections,
+        allergies,
+        transfusion,
+        battleRoster,
+      });
+
+      if (!soldierResult.error) {
+        console.log('success'); 
+      }
+    };
 
   return (
     <form onSubmit={handleMainInfoSubmit} style={{ margin: '25px' }}>
