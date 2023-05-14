@@ -66,18 +66,22 @@ export const SecondaryInfo = ({
       }, []);
       
       useEffect(() => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        setCtx(context);
+    
         const loadImage = () => {
           const image = new Image();
           image.src = human;
           image.onload = () => {
-            ctx.drawImage(image, 0, 0);
+            context.drawImage(image, 0, 0);
           };
         };
-        
-        if (ctx) {
+    
+        if (context) {
           loadImage();
         }
-      }, [ctx]);
+      }, [])
       
       const handleColorChange = (e) => {
         setColor(e.target.value);
@@ -113,6 +117,24 @@ export const SecondaryInfo = ({
         ctx.lineWidth = 5;
         ctx.lineTo(offsetX, offsetY);
         ctx.stroke();
+      };
+
+      const clearCanvas = event => {
+        event.preventDefault();
+        if (ctx) {
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        }
+        const loadImage = () => {
+          const image = new Image();
+          image.src = human;
+          image.onload = () => {
+            ctx.drawImage(image, 0, 0);
+          };
+        };
+    
+        if (ctx) {
+          loadImage();
+        }
       };
 
   return (
@@ -217,6 +239,7 @@ export const SecondaryInfo = ({
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
         />
+        <Button type="submit" onClick={clearCanvas} variant="contained" color="primary" style={{ margin: '20px' }}>Очистити</Button>
         <div>
           <h5>Обери Колір</h5>
           <input type="color" value={color} onChange={handleColorChange} />
