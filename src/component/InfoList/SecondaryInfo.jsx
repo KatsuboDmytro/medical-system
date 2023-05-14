@@ -91,13 +91,14 @@ export const SecondaryInfo = ({
     setImg(imageDataURL);
 
     const soldierResult = await soldier({
-      name,
-      age,
-      bloodType,
-      infections,
-      allergies,
-      transfusion,
-      battleRoster,
+      date,
+      time,
+      army,
+      armyType,
+      evac,
+      sex,
+      injuries,
+      img,
     });
 
     if (!soldierResult.error) {
@@ -228,14 +229,20 @@ export const SecondaryInfo = ({
         </Box>
       </Box>
 
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <canvas ref={canvasRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} />
-        <Button type="submit" onClick={clearCanvas} variant="contained" color="primary" style={{ margin: '20px' }}>
-          Очистити
-        </Button>
+      <div style={{ display: 'flex', justifyContent: 'center', flexDirection:"column", alignItems:"center" }}>
         <div>
-          <h5>Обери Колір</h5>
-          <input type="color" value={color} onChange={handleColorChange} />
+          <canvas 
+          ref={canvasRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} />
+        </div>
+
+        <div>
+          <Button type="submit" onClick={clearCanvas} variant="contained" color="primary" style={{ margin: '20px' }}>
+            Очистити
+          </Button>
+          <div>
+            <h5>Обери Колір</h5>
+            <input type="color" value={color} onChange={handleColorChange} />
+          </div>
         </div>
       </div>
 
