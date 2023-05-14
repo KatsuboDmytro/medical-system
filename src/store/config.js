@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
-import apiSlice from "./api";
-import authSlice from "./auth/authSlice";
-import soldiersSlice from "./soldiers/soldiersSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import apiSlice from './api';
+import authSlice from './auth/authSlice';
+import soldiersSlice from './soldiers/soldiersSlice';
 
 const reducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
@@ -12,7 +12,7 @@ const reducer = combineReducers({
 
 const store = configureStore({
   reducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware()
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export default store;

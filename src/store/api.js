@@ -21,7 +21,7 @@ const apiSlice = createApi({
     // AUTH API
     login: mutation({
       query: body => ({
-        url: '/login',
+        url: '/auth/login',
         method: 'POST',
         body,
       }),

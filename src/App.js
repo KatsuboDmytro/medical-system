@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Router from "./Router/Router";
 import store from "./store/config";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (

@@ -13,3 +13,11 @@ export const SOLDIERS_TABLE_HEADERS = [
   'Переливання крові',
 ];
 export const SOLDIERS_DATA_ORDER = ['name', 'id', 'age', 'bloodType', 'infections', 'alergions', 'battleRoster'];
+export const toastOptions = {
+  autoClose: 3000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+};

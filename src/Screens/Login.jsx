@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router';
+import { useLoginMutation } from '../store/api';
+import endpoints from '../Router/endpoints';
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const [login] = useLoginMutation();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,15 +19,21 @@ export const Login = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    // Perform login logic or API call here
-    console.log('Username:', username);
-    console.log('Password:', password);
+
+    const result = await login({
+      username: username.trim(),
+      password,
+    });
+
+    if (!result.error) {
+      navigate(endpoints.soldiers); 
+    }
   };
 
   return (
-    <Container 
+    <Container
       maxWidth="sm"
       style={{
         display: 'flex',
@@ -34,13 +46,7 @@ export const Login = () => {
         Login
       </Typography>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="Username"
-          value={username}
-          onChange={handleUsernameChange}
-          fullWidth
-          margin="normal"
-        />
+        <TextField label="Username" value={username} onChange={handleUsernameChange} fullWidth margin="normal" />
         <TextField
           label="Password"
           type="password"
@@ -50,7 +56,7 @@ export const Login = () => {
           margin="normal"
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
-          Sign In
+          Увійти
         </Button>
       </form>
     </Container>
